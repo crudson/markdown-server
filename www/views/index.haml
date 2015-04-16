@@ -1,0 +1,18 @@
+!!! 5
+
+%html
+  %head
+    %title markdown viewer
+
+  %body
+
+    %div
+      = @file
+
+    %div
+      %ul
+        - Dir.glob(File.join(@file, '{*,.*}')).sort.each do |f|
+          %li
+            %a{href: "/?f=#{f}"}
+              - f = "#{f}/" if File.directory?(f)
+              = f

@@ -1,0 +1,14 @@
+- require 'github/markdown'
+
+!!! 5
+
+%html
+  %head
+    %title markdown viewer
+  %body
+
+    %div
+      = @file
+
+    %div
+      = GitHub::Markdown.render_gfm(File.read(@file))
